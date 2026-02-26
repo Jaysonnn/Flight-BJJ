@@ -11,18 +11,18 @@
           
           <div class="dropdown-content absolute top-[70px] left-0 w-72 bg-white border border-gray-100 shadow-2xl py-6 px-8 z-50">
             <ul class="space-y-4 text-xs font-bold tracking-widest uppercase text-gray-900">
-              <li><a href="become-member.html" class="hover:text-gray-500 transition-colors block">Become a Member</a></li>
-              <li><a href="trial.html" class="hover:text-gray-500 transition-colors block">Book Trial Class</a></li>
-              <li><a href="visiting.html" class="hover:text-gray-500 transition-colors block">Visiting Flight BJJ</a></li>
-              <li><a href="#schedule" class="hover:text-gray-500 transition-colors block">Class Schedule</a></li>
-              <li><a href="#coaches" class="hover:text-gray-500 transition-colors block">Our Coaches</a></li>
+              <li><a href="{{ '/become-member.html' | relative_url }}" class="hover:text-gray-500 transition-colors block">Become a Member</a></li>
+              <li><a href="{{ '/trial.html' | relative_url }}" class="hover:text-gray-500 transition-colors block">Book Trial Class</a></li>
+              <li><a href="{{ '/visiting.html' | relative_url }}" class="hover:text-gray-500 transition-colors block">Visiting Flight BJJ</a></li>
+              <li><a href="{{ '/index.html#schedule' | relative_url }}" class="hover:text-gray-500 transition-colors block">Class Schedule</a></li>
+              <li><a href="{{ '/index.html#coaches' | relative_url }}" class="hover:text-gray-500 transition-colors block">Our Coaches</a></li>
               
               <li class="pt-4 border-t border-gray-100">
-                <a href="programs.html" class="text-gray-400 hover:text-gray-900 transition-colors block mb-2">Programs</a>
+                <a href="{{ '/programs.html' | relative_url }}" class="text-gray-400 hover:text-gray-900 transition-colors block mb-2">Programs</a>
                 <ul class="space-y-3 pl-4 border-l-2 border-black/5 text-[11px] text-gray-600">
-                  <li><a href="adults.html" class="hover:text-black block font-bold text-gray-900">Adults Class</a></li>
-                  <li><a href="adults-jiu-jitsu.html" class="hover:text-black block"> Adults Jiu-Jitsu</a></li>
-                  <li><a href="striking.html" class="hover:text-black block"> Striking</a></li>
+                  <li><a href="{{ '/programs/adults.html' | relative_url }}" class="hover:text-black block font-bold text-gray-900">Adults Class</a></li>
+                  <li><a href="{{ '/programs/adults-jiu-jitsu.html' | relative_url }}" class="hover:text-black block">Adults Jiu-Jitsu</a></li>
+                  <li><a href="{{ '/programs/striking.html' | relative_url }}" class="hover:text-black block">Striking</a></li>
                   
                   <li class="pt-2"><a href="{{ '/programs/kids.html' | relative_url }}" class="hover:text-black block font-bold text-gray-900">Kids Class</a></li>
                   <li class="pt-2"><a href="{{ '/programs/ndis.html' | relative_url }}" class="hover:text-black block font-bold text-gray-900">NDIS Class</a></li>
@@ -33,18 +33,18 @@
           </div>
         </div>
         
-        <a href="shop.html" class="hidden md:block text-sm font-bold tracking-widest uppercase hover:text-gray-500 transition-colors">SHOP</a>
+        <a href="{{ '/shop.html' | relative_url }}" class="hidden md:block text-sm font-bold tracking-widest uppercase hover:text-gray-500 transition-colors">SHOP</a>
       </div>
       
       <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-3">
-        <a href="index.html" class="flex items-center gap-3">
-          <img src="assets/images/flightbjj-logo.png" alt="Flight BJJ Logo" class="h-10 sm:h-12 w-auto object-contain">
+        <a href="{{ '/index.html' | relative_url }}" class="flex items-center gap-3">
+          <img src="{{ '/assets/images/flightbjj-logo.png' | relative_url }}" alt="Flight BJJ Logo" class="h-10 sm:h-12 w-auto object-contain">
           <span class="text-xl sm:text-2xl font-black tracking-[0.2em] uppercase hidden lg:block">FLIGHT BJJ</span>
         </a>
       </div>
       
       <div class="flex items-center">
-         <a href="trial.html" class="text-xs font-bold tracking-widest uppercase bg-black text-white px-6 py-3 hover:bg-gray-800 transition-colors">
+         <a href="{{ '/trial.html' | relative_url }}" class="text-xs font-bold tracking-widest uppercase bg-black text-white px-6 py-3 hover:bg-gray-800 transition-colors">
           FREE TRIAL
         </a>
       </div>
