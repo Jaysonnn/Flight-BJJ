@@ -1,0 +1,28 @@
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Smooth reveal animations retained for premium feel */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up { 
+      animation: fadeInUp 0.8s ease-out forwards; 
+      opacity: 0; 
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+
+    /* Dropdown CSS for the Mega Menu */
+    .dropdown-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .dropdown-container:hover .dropdown-content {
+      display: block;
+      opacity: 1;
+    }
