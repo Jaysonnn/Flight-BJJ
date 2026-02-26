@@ -1,29 +1,59 @@
 <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-  <div class="dropdown-content absolute top-[70px] left-0 w-72 bg-white border border-gray-100 shadow-2xl py-6 px-8 z-50">
-    <ul class="space-y-4 text-xs font-bold tracking-widest uppercase text-gray-900">
-      <li><a href="/index.html">Home Page</a></li>
-      <li><a href="/become-member.html">Become a Member</a></li>
-      <li><a href="/trial.html">Book Trial Class</a></li>
-      <li><a href="/visiting.html">Visiting Flight BJJ</a></li>
-      <li><a href="/schedule.html">Class Schedule</a></li>
-      <li><a href="/coaches.html">Our Coaches</a></li>
+  <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
       
-      <li class="pt-4 border-t border-gray-100">
-        <span class="text-gray-400 block mb-2">Programs</span>
-        <ul class="space-y-3 pl-4 border-l-2 border-black/5 text-[11px] text-gray-600">
-          <li><a href="/programs/adults.html" class="font-bold text-gray-900">Adults Class</a></li>
-          <li><a href="/programs/fundamentals.html">- Fundamentals</a></li>
-          <li><a href="/programs/gi.html">- Gi</a></li>
-          <li><a href="/programs/nogi.html">- No-Gi</a></li>
-          <li><a href="/programs/competition.html">- Competition</a></li>
-          <li><a href="/programs/grappling.html">- Grappling Rounds</a></li>
-          <li><a href="/programs/kickboxing.html">- Kickboxing</a></li>
-          <li><a href="/programs/boxing.html">- Boxing</a></li>
-          <li class="pt-2"><a href="/programs/kids.html" class="font-bold text-gray-900">Kids Class</a></li>
-          <li class="pt-2"><a href="/programs/ndis.html" class="font-bold text-gray-900">NDIS Class</a></li>
-          <li class="pt-2"><a href="/programs/private.html" class="font-bold text-gray-900">Private Lessons</a></li>
-        </ul>
-      </li>
-    </ul>
+      <div class="flex items-center space-x-8">
+        <div class="dropdown-container relative h-full flex items-center">
+          <button class="text-sm font-bold tracking-widest uppercase hover:text-gray-500 transition-colors flex items-center gap-1 py-6">
+            Menu
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          
+          <div class="dropdown-content absolute top-[70px] left-0 w-72 bg-white border border-gray-100 shadow-2xl py-6 px-8 z-50">
+            <ul class="space-y-4 text-xs font-bold tracking-widest uppercase text-gray-900">
+              <li><a href="index.html" class="hover:text-gray-500 transition-colors block">Home Page</a></li>
+              <li><a href="become-member.html" class="hover:text-gray-500 transition-colors block">Become a Member</a></li>
+              <li><a href="trial.html" class="hover:text-gray-500 transition-colors block">Book Trial Class</a></li>
+              <li><a href="visiting.html" class="hover:text-gray-500 transition-colors block">Visiting Flight BJJ</a></li>
+              <li><a href="#schedule" class="hover:text-gray-500 transition-colors block">Class Schedule</a></li>
+              <li><a href="#coaches" class="hover:text-gray-500 transition-colors block">Our Coaches</a></li>
+              
+              <li class="pt-4 border-t border-gray-100">
+                <a href="programs.html" class="text-gray-400 hover:text-gray-900 transition-colors block mb-2">Programs</a>
+                <ul class="space-y-3 pl-4 border-l-2 border-black/5 text-[11px] text-gray-600">
+                  <li><a href="adults.html" class="hover:text-black block font-bold text-gray-900">Adults Class</a></li>
+                  <li><a href="adults-fundamentals.html" class="hover:text-black block">- Fundamentals</a></li>
+                  <li><a href="adults-gi.html" class="hover:text-black block">- Gi</a></li>
+                  <li><a href="adults-nogi.html" class="hover:text-black block">- No-Gi</a></li>
+                  <li><a href="adults-competition.html" class="hover:text-black block">- Competition</a></li>
+                  <li><a href="grappling.html" class="hover:text-black block">- Grappling Rounds</a></li>
+                  <li><a href="kickboxing.html" class="hover:text-black block">- Kickboxing</a></li>
+                  <li><a href="boxing.html" class="hover:text-black block">- Boxing</a></li>
+                  
+                  <li class="pt-2"><a href="kids.html" class="hover:text-black block font-bold text-gray-900">Kids Class</a></li>
+                  <li class="pt-2"><a href="ndis.html" class="hover:text-black block font-bold text-gray-900">NDIS Class</a></li>
+                  <li class="pt-2"><a href="private.html" class="hover:text-black block font-bold text-gray-900">Private Lessons</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <a href="shop.html" class="hidden md:block text-sm font-bold tracking-widest uppercase hover:text-gray-500 transition-colors">SHOP</a>
+      </div>
+      
+      <div class="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/images/flightbjj-logo.png" alt="Flight BJJ Logo" class="h-10 sm:h-12 w-auto object-contain">
+          <span class="text-xl sm:text-2xl font-black tracking-[0.2em] uppercase hidden lg:block">FLIGHT BJJ</span>
+        </a>
+      </div>
+      
+      <div class="flex items-center">
+         <a href="trial.html" class="text-xs font-bold tracking-widest uppercase bg-black text-white px-6 py-3 hover:bg-gray-800 transition-colors">
+          FREE TRIAL
+        </a>
+      </div>
+    </div>
   </div>
-  </nav>
+</nav>

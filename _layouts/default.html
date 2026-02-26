@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }} | Flight BJJ</title>
   
+  <meta name="description" content="Master the art of Jiu Jitsu at Flight BJJ. Offering Adults, Kids, and NDIS programs.">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,7 +14,34 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up { 
+      animation: fadeInUp 0.8s ease-out forwards; 
+      opacity: 0; 
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+
+    .dropdown-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .dropdown-container:hover .dropdown-content {
+      display: block;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body class="bg-white text-gray-900 selection:bg-black selection:text-white">
 
@@ -24,6 +53,8 @@
 
   {% include footer.html %}
 
-  <script src="assets/js/main.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
