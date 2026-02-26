@@ -26,3 +26,21 @@
       display: block;
       opacity: 1;
     }
+
+    /* --- Kids Page Animations --- */
+
+/* Define the bounce animation keyframes */
+@keyframes playfulBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.1); /* Move up and grow slightly */
+  }
+}
+
+/* Apply the animation to the icon when hovering over the card */
+.ninja-card:hover .ninja-icon {
+  animation: playfulBounce 0.6s ease-in-out infinite;
+  color: inherit; /* Allows the icon to take the hover color of the text */
+}
