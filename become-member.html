@@ -23,8 +23,17 @@ title: Become a Member
   <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-16 items-start">
       
-      <div class="sticky top-32 hidden lg:block">
-        <img src="assets/images/matt.png" alt="Training on the mats at Flight BJJ" class="w-full h-auto object-cover shadow-2xl border-4 border-black">
+      <div class="sticky top-32 hidden lg:flex flex-col gap-6">
+        <video 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          class="w-full h-auto object-cover shadow-2xl border-4 border-white"
+        >
+          <source src="assets/videos/intro.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <div class="bg-gray-50 p-8 sm:p-12 border-t-4 border-black shadow-lg">
@@ -130,34 +139,3 @@ title: Become a Member
     </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const programSelect = document.getElementById('program');
-    const ratesContainer = document.getElementById('dynamic-rates-container');
-    
-    // Rate Divs
-    const ratesAdults = document.getElementById('rates-adults');
-    const ratesKids = document.getElementById('rates-kids');
-    const ratesNdis = document.getElementById('rates-ndis');
-
-    programSelect.addEventListener('change', function() {
-      // Show the main container
-      ratesContainer.classList.remove('hidden');
-      
-      // Hide all individual rate sections first
-      ratesAdults.classList.add('hidden');
-      ratesKids.classList.add('hidden');
-      ratesNdis.classList.add('hidden');
-
-      // Show the specific rate section based on selection
-      if (this.value === 'adults') {
-        ratesAdults.classList.remove('hidden');
-      } else if (this.value === 'kids') {
-        ratesKids.classList.remove('hidden');
-      } else if (this.value === 'ndis') {
-        ratesNdis.classList.remove('hidden');
-      }
-    });
-  });
-</script>
