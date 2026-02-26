@@ -21,9 +21,9 @@ title: Book a Free Trial
 
 <section class="py-24 bg-white">
   <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-16 items-start">
+    <div class="grid lg:grid-cols-2 gap-16">
       
-      <div class="bg-gray-50 p-8 sm:p-12 border-t-4 border-black shadow-lg">
+      <div class="bg-gray-50 p-8 sm:p-12 border-t-4 border-black shadow-lg h-full flex flex-col justify-center">
         <h2 class="text-3xl font-black uppercase tracking-tight mb-8">Start Your Trial</h2>
         
         <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" class="space-y-6" id="trial-form">
@@ -83,55 +83,25 @@ title: Book a Free Trial
         </form>
       </div>
 
-      <div class="sticky top-32 hidden lg:flex justify-center">
-        <div class="relative w-full max-w-md aspect-[9/16] bg-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-4 border-black overflow-hidden group">
-          
-          <video 
-            autoplay 
-            loop 
-            muted 
-            playsinline 
-            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
-          >
-            <source src="assets/images/flightbjjvid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          
-          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-            <span class="text-white font-black uppercase tracking-widest text-xl">Action On<br/>The Mats</span>
-          </div>
-
+      <div class="hidden lg:block relative w-full h-full min-h-[500px] bg-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] border-4 border-black overflow-hidden group">
+        
+        <video 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+        >
+          <source src="assets/videos/end.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+          <span class="text-white font-black uppercase tracking-widest text-xl">Action On<br/>The Mats</span>
         </div>
+
       </div>
 
     </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const residentRadios = document.querySelectorAll('.resident-radio');
-    const warningMessage = document.getElementById('non-resident-warning');
-    const extendedForm = document.getElementById('extended-form');
-    
-    // Disable form inputs by default until residency is confirmed
-    const formInputs = extendedForm.querySelectorAll('input, select, button');
-    formInputs.forEach(input => input.disabled = true);
-
-    residentRadios.forEach(radio => {
-      radio.addEventListener('change', function() {
-        if (this.value === 'yes') {
-          // They are a resident: Show form, hide warning, enable inputs
-          warningMessage.classList.add('hidden');
-          extendedForm.classList.remove('hidden');
-          formInputs.forEach(input => input.disabled = false);
-        } else {
-          // They are NOT a resident: Show warning, hide form, disable inputs so they can't submit
-          warningMessage.classList.remove('hidden');
-          extendedForm.classList.add('hidden');
-          formInputs.forEach(input => input.disabled = true);
-        }
-      });
-    });
-  });
-</script>
