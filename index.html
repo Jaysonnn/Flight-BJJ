@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight BJJ | Sunshine VIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #18181b; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+        
+        /* Map grayscale filter */
+        iframe { filter: grayscale(100%) invert(92%) contrast(83%); }
+
+        .coach-card.active { transform: scale(1.02); z-index: 20; filter: grayscale(0%); border-color: white; }
+        .coach-card:not(.active) { filter: grayscale(100%); opacity: 0.7; }
+        .coach-card:hover { opacity: 1; filter: grayscale(0%); }
+        .coach-desc { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.4s ease-out; }
+        .coach-card.active .coach-desc { max-height: 200px; opacity: 1; margin-top: 1rem; }
+
+        /* Animations */
+        .tab-btn.active { background-color: white; color: black; border-color: white; }
+        .tab-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; }
+
+        .price-tab.active { background-color: #27272a; color: white; }
+        .price-grid { display: none; animation: fadeIn 0.4s ease-out; }
+        .price-grid.active { display: grid; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .class-row:hover .row-arrow { transform: translateX(4px); opacity: 1; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 antialiased selection:bg-orange-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-zinc-950/80 backdrop-blur-md">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="flex h-20 items-center justify-between">
+                <a href="#" class="group relative flex items-center gap-1">
+                    <div class="border-[3px] border-white px-3 py-1 pb-2">
+                        <span class="font-semibold tracking-tighter text-white text-2xl group-hover:text-zinc-200 transition-colors">FLIGHT</span>
+                    </div>
+                    <div class="absolute -bottom-2 left-8 flex items-center bg-zinc-950 px-1">
+                        <div class="h-2 w-8 bg-orange-600 mr-1"></div>
+                        <span class="text-sm font-semibold tracking-widest text-white">BJJ</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-sm font-normal text-zinc-400 hover:text-white transition-colors">Home</a>
+                    <a href="#timetable" class="text-sm font-normal text-zinc-400 hover:text-white transition-colors">Timetable</a>
+                    <a href="#prices" class="text-sm font-normal text-zinc-400 hover:text-white transition-colors">Prices</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="#login" class="text-sm font-medium text-white hover:text-orange-500 transition-colors">Member Login</a>
+                    <a href="#contact" class="bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-zinc-200 transition-colors rounded-full">Start Trial</a>
+                </div>
+                
+                <button class="md:hidden text-white">
+                    <iconify-icon icon="solar:hamburger-menu-linear" width="24" height="24"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative flex min-h-[85vh] items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=2069&auto=format&fit=crop" alt="BJJ Training" class="h-full w-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 mx-auto max-w-5xl px-6 text-center">
+            <div class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 mb-6 backdrop-blur-sm">
+                <span class="flex h-2 w-2 rounded-full bg-orange-500 mr-2"></span>
+                <span class="text-xs font-medium text-zinc-200 tracking-wide uppercase">Accepting New Students</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-medium tracking-tight text-white mb-6">
+                Elevate Your Game at <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-500">Flight Jiu Jitsu.</span>
+            </h1>
+            <p class="mx-auto max-w-2xl text-lg md:text-xl text-zinc-400 font-light mb-10 leading-relaxed">
+                Join a community dedicated to technical excellence and personal growth. Based in Sunshine, VIC.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <a href="#timetable" class="w-full md:w-auto bg-white text-black px-8 py-4 text-base font-medium rounded-full hover:bg-zinc-200 transition-all flex items-center justify-center gap-2">
+                    View Timetable 
+                    <iconify-icon icon="solar:arrow-right-linear" width="20"></iconify-icon>
+                </a>
+                <a href="#about" class="w-full md:w-auto border border-zinc-700 text-white px-8 py-4 text-base font-medium rounded-full hover:bg-white/5 transition-all">
+                    About Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-24 bg-zinc-950 border-t border-white/5">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white mb-6">More than just a gym.</h2>
+                    <p class="text-lg text-zinc-400 mb-6 leading-relaxed">
+                        At Flight BJJ, we believe in the transformative power of Jiu-Jitsu. Whether you are training for competition, fitness, or self-defense, our structured curriculum ensures you progress safely and effectively.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
+                        <div>
+                            <h3 class="text-3xl font-medium text-white tracking-tight">300m²</h3>
+                            <p class="text-base text-zinc-500 mt-1">Mat Space</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-medium text-white tracking-tight">15+</h3>
+                            <p class="text-base text-zinc-500 mt-1">Weekly Classes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative h-[400px] w-full rounded-2xl overflow-hidden border border-white/10 group">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" alt="BJJ Rolling">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMETABLE SECTION -->
+    <section id="timetable" class="py-24 bg-zinc-950 border-t border-white/5">
+        <div class="mx-auto max-w-5xl px-6">
+            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white">Class Schedule</h2>
+                    <p class="mt-2 text-lg text-zinc-400">Join us for Gi, No-Gi, and striking classes throughout the week.</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-zinc-500">
+                    <iconify-icon icon="solar:info-circle-linear" width="18"></iconify-icon>
+                    <span>Click a day to filter</span>
+                </div>
+            </div>
+
+            <!-- Day Selector (Tabs) -->
+            <div class="no-scrollbar mb-10 overflow-x-auto pb-2">
+                <div class="flex min-w-max gap-2" id="day-tabs">
+                    <button onclick="switchTab('monday')" class="tab-btn active px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-zinc-400 transition-all hover:bg-white/5 hover:text-white">Monday</button>
+                    <button onclick="switchTab('tuesday')" class="tab-btn px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-zinc-400 transition-all hover:bg-white/5 hover:text-white">Tuesday</button>
+                    <button onclick="switchTab('wednesday')" class="tab-btn px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-zinc-400 transition-all hover:bg-white/5 hover:text-white">Wednesday</button>
+                    <button onclick="switchTab('thursday')" class="tab-btn px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-zinc-400 transition-all hover:bg-white/5 hover:text-white">Thursday</button>
+                    <button onclick="switchTab('friday')" class="tab-btn px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-zinc-400 transition-all hover:bg-white/5 hover:text-white">Friday</button>
+                    <button onclick="switchTab('saturday')" class="tab-btn px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-zinc-400 transition-all hover:bg-white/5 hover:text-white">Saturday</button>
+                    <button onclick="switchTab('sunday')" class="tab-btn px-5 py-2 rounded-full border border-white/10 text-sm font-medium text-zinc-400 transition-all hover:bg-white/5 hover:text-white">Sunday</button>
+                </div>
+            </div>
+
+            <!-- Schedule Content -->
+            <div class="min-h-[400px]">
+                
+                <!-- Monday -->
+                <div id="monday" class="tab-content active space-y-3">
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:clock-circle-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Brazilian Jiu Jitsu</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>6:00 PM - 7:30 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-orange-400">Gi Required</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-16 md:ml-0 flex items-center gap-3">
+                            <span class="rounded-full bg-orange-500/10 px-3 py-1 text-xs font-medium text-orange-500 border border-orange-500/20">All Levels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuesday -->
+                <div id="tuesday" class="tab-content space-y-3">
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:users-group-rounded-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Kids Class</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>5:00 PM - 5:45 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span>Mixed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-400 border border-blue-500/20">Kids 5-12</span>
+                    </div>
+
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:bone-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Brazilian Jiu Jitsu</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>6:00 PM - 7:30 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-zinc-200">No Gi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-zinc-100/10 px-3 py-1 text-xs font-medium text-zinc-300 border border-zinc-100/20">All Levels</span>
+                    </div>
+                </div>
+
+                <!-- Wednesday -->
+                <div id="wednesday" class="tab-content space-y-3">
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:sun-fog-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Early Bird Fundamentals</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>6:00 AM - 7:00 AM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span>No Gi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/20">Beginner Friendly</span>
+                    </div>
+
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:kick-boxing-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Kickboxing</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>5:00 PM - 6:00 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-red-400">Striking</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-red-500/10 px-3 py-1 text-xs font-medium text-red-400 border border-red-500/20">Gloves Required</span>
+                    </div>
+
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:clock-circle-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Brazilian Jiu Jitsu</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>6:00 PM - 7:30 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-orange-400">Gi Required</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-orange-500/10 px-3 py-1 text-xs font-medium text-orange-500 border border-orange-500/20">All Levels</span>
+                    </div>
+                </div>
+
+                <!-- Thursday -->
+                <div id="thursday" class="tab-content space-y-3">
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:bone-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Brazilian Jiu Jitsu</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>6:00 PM - 7:30 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-zinc-200">No Gi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-zinc-100/10 px-3 py-1 text-xs font-medium text-zinc-300 border border-zinc-100/20">Advanced</span>
+                    </div>
+                </div>
+
+                <!-- Friday -->
+                <div id="friday" class="tab-content space-y-3">
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:fire-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Grappling Rounds</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>6:00 PM - 7:30 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span>Live Sparring</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-purple-500/10 px-3 py-1 text-xs font-medium text-purple-400 border border-purple-500/20">Open Mat</span>
+                    </div>
+                </div>
+
+                <!-- Saturday -->
+                <div id="saturday" class="tab-content space-y-3">
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:users-group-rounded-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Kids Class</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>9:00 AM - 9:45 AM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span>Mixed</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-400 border border-blue-500/20">Kids 5-12</span>
+                    </div>
+
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:book-bookmark-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Fundamentals</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>10:00 AM - 11:00 AM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-zinc-200">No Gi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400 border border-emerald-500/20">All Levels</span>
+                    </div>
+
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:kick-boxing-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Kickboxing</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>11:00 AM - 12:00 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-red-400">Striking</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-red-500/10 px-3 py-1 text-xs font-medium text-red-400 border border-red-500/20">All Levels</span>
+                    </div>
+                </div>
+
+                 <!-- Sunday -->
+                 <div id="sunday" class="tab-content space-y-3">
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:gloves-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Boxing</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>8:30 AM - 9:30 AM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-red-400">Striking</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-red-500/10 px-3 py-1 text-xs font-medium text-red-400 border border-red-500/20">All Levels</span>
+                    </div>
+
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:book-bookmark-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Fundamentals</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>10:00 AM - 11:00 AM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span class="text-orange-400">Gi Required</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-orange-500/10 px-3 py-1 text-xs font-medium text-orange-500 border border-orange-500/20">Beginner Friendly</span>
+                    </div>
+
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:fire-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">Grappling Rounds</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>11:00 AM - 12:00 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span>Live Sparring</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-purple-500/10 px-3 py-1 text-xs font-medium text-purple-400 border border-purple-500/20">Open Mat</span>
+                    </div>
+
+                    <div class="class-row group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-xl border border-white/5 bg-zinc-900/40 p-5 transition-all hover:border-white/10 hover:bg-zinc-900">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-white">
+                                <iconify-icon icon="solar:wheelchair-linear" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-white">NDIS Class</h3>
+                                <div class="flex items-center gap-3 text-sm text-zinc-400 mt-1">
+                                    <span>12:00 PM</span>
+                                    <span class="h-1 w-1 rounded-full bg-zinc-600"></span>
+                                    <span>Specialty</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="ml-16 md:ml-0 rounded-full bg-zinc-100/10 px-3 py-1 text-xs font-medium text-zinc-300 border border-zinc-100/20">By Appointment</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="prices" class="py-24 bg-zinc-950 border-t border-white/5 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800/20 via-zinc-950 to-zinc-950 pointer-events-none"></div>
+        
+        <div class="relative z-10 mx-auto max-w-7xl px-6">
+            <div class="flex flex-col items-center justify-center text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white mb-4">Membership Options</h2>
+                <p class="text-lg text-zinc-400 mb-8 max-w-xl">Simple, transparent pricing for everyone. Choose the plan that fits your goals.</p>
+                
+                <!-- Toggle -->
+                <div class="inline-flex rounded-full bg-zinc-900 p-1 border border-white/10 shadow-lg">
+                    <button onclick="togglePrices('adults')" id="btn-adults" class="price-tab active rounded-full px-8 py-2.5 text-sm font-medium transition-all hover:text-white">Adults</button>
+                    <button onclick="togglePrices('kids')" id="btn-kids" class="price-tab rounded-full px-8 py-2.5 text-sm font-medium text-zinc-400 transition-all hover:text-white">Kids</button>
+                </div>
+            </div>
+
+            <!-- Adults Grid -->
+            <div id="prices-adults" class="price-grid active grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 7 Day Trial -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-orange-500 transition-colors">
+                            <i data-lucide="ticket"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">7 Day Free Trial</h3>
+                        <p class="mt-2 text-sm text-zinc-400">Gauge your interest and learn something new with no obligation.</p>
+                        <div class="my-6">
+                            <span class="text-4xl font-medium tracking-tight text-white">Free</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Start Now
+                    </a>
+                </div>
+
+                <!-- Monthly Unlimited -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-orange-500/30 bg-zinc-900/80 p-8 backdrop-blur-sm shadow-[0_0_30px_-10px_rgba(249,115,22,0.1)] transition-all hover:border-orange-500/50 hover:bg-zinc-900 group">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-orange-600 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">Most Popular</div>
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/10 text-orange-500">
+                            <i data-lucide="zap"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">Unlimited Access</h3>
+                        <p class="mt-2 text-sm text-zinc-400">Monthly direct debit. Includes one-off admin set up fee of $12.</p>
+                        <div class="my-6 flex items-baseline gap-1">
+                            <span class="text-4xl font-medium tracking-tight text-white">$160</span>
+                            <span class="text-sm text-zinc-500">/mo</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full bg-white py-2.5 text-sm font-medium text-black transition-all hover:bg-zinc-200">
+                        Join Now
+                    </a>
+                </div>
+
+                <!-- Casual -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-blue-500 transition-colors">
+                            <i data-lucide="footprints"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">Casual Visit</h3>
+                        <p class="mt-2 text-sm text-zinc-400">Drop in fee for one off visit. AET Affiliate Students pay just $15.</p>
+                        <div class="my-6 flex items-baseline gap-1">
+                            <span class="text-4xl font-medium tracking-tight text-white">$25</span>
+                            <span class="text-sm text-zinc-500">/visit</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Drop In
+                    </a>
+                </div>
+
+                <!-- 10 Class Pass -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-purple-500 transition-colors">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">10 Class Pass</h3>
+                        <p class="mt-2 text-sm text-zinc-400">Flexible casual membership applicable to all classes. Expires within 2 months.</p>
+                        <div class="my-6">
+                            <span class="text-4xl font-medium tracking-tight text-white">$200</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Purchase Pass
+                    </a>
+                </div>
+
+                <!-- Private Lessons -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-emerald-500 transition-colors">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">Private Lessons</h3>
+                        <p class="mt-2 text-sm text-zinc-400">1 on 1 or group training for BJJ, Judo, Boxing & Kickboxing.</p>
+                        <div class="my-6">
+                            <span class="text-4xl font-medium tracking-tight text-white">Custom</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Inquire Now
+                    </a>
+                </div>
+
+                <!-- Family Discount -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-rose-500 transition-colors">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">Family Discount</h3>
+                        <p class="mt-2 text-sm text-zinc-400">Training is better together. Family discounts on multiple memberships.</p>
+                        <div class="my-6">
+                            <span class="text-4xl font-medium tracking-tight text-white">10% Off</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Contact Us
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Kids Grid -->
+            <div id="prices-kids" class="price-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 1 Day Trial -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-blue-500 transition-colors">
+                            <i data-lucide="ticket"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">1 Day Free Trial</h3>
+                        <p class="mt-2 text-sm text-zinc-400">Gauge your interest and learn something new with no obligation.</p>
+                        <div class="my-6">
+                            <span class="text-4xl font-medium tracking-tight text-white">Free</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Start Now
+                    </a>
+                </div>
+
+                <!-- Term Upfront (2x) -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-orange-500/30 bg-zinc-900/80 p-8 backdrop-blur-sm shadow-[0_0_30px_-10px_rgba(249,115,22,0.1)] transition-all hover:border-orange-500/50 hover:bg-zinc-900 group">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-orange-600 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">Best Value</div>
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-orange-500/10 text-orange-500">
+                            <i data-lucide="calendar-check"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">Term Upfront (2x)</h3>
+                        <p class="mt-2 text-sm text-zinc-400">2 classes per week. Works out to less than $12 per class.</p>
+                        <div class="my-6 flex items-baseline gap-1">
+                            <span class="text-4xl font-medium tracking-tight text-white">$250</span>
+                            <span class="text-sm text-zinc-500">/term</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full bg-white py-2.5 text-sm font-medium text-black transition-all hover:bg-zinc-200">
+                        Join Now
+                    </a>
+                </div>
+
+                <!-- Term Upfront (1x) -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-indigo-500 transition-colors">
+                            <i data-lucide="calendar"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">Term Upfront (1x)</h3>
+                        <p class="mt-2 text-sm text-zinc-400">1 class per week. Perfect for getting started.</p>
+                        <div class="my-6 flex items-baseline gap-1">
+                            <span class="text-4xl font-medium tracking-tight text-white">$175</span>
+                            <span class="text-sm text-zinc-500">/term</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Join Now
+                    </a>
+                </div>
+
+                <!-- Casual -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-blue-500 transition-colors">
+                            <i data-lucide="footprints"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">Casual Visit</h3>
+                        <p class="mt-2 text-sm text-zinc-400">Drop in fee for one off visit to any kids class.</p>
+                        <div class="my-6 flex items-baseline gap-1">
+                            <span class="text-4xl font-medium tracking-tight text-white">$20</span>
+                            <span class="text-sm text-zinc-500">/visit</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Drop In
+                    </a>
+                </div>
+
+                <!-- Private Lessons -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-emerald-500 transition-colors">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">Private Lessons</h3>
+                        <p class="mt-2 text-sm text-zinc-400">1 on 1 or group training. Focused attention to accelerate learning.</p>
+                        <div class="my-6">
+                            <span class="text-4xl font-medium tracking-tight text-white">Custom</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Inquire Now
+                    </a>
+                </div>
+
+                <!-- NDIS -->
+                <div class="relative flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-zinc-900 group">
+                    <div>
+                        <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-800 text-white group-hover:text-teal-500 transition-colors">
+                            <i data-lucide="accessibility"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-white">NDIS Support</h3>
+                        <p class="mt-2 text-sm text-zinc-400">Specialized programs available. Please inquire with Will or Angel.</p>
+                        <div class="my-6">
+                            <span class="text-4xl font-medium tracking-tight text-white">Inquire</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="flex w-full items-center justify-center rounded-full border border-white/10 py-2.5 text-sm font-medium text-white transition-all hover:bg-white hover:text-black">
+                        Contact Us
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet The Team -->
+    <section class="py-24 bg-zinc-900 border-y border-white/5">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white">Choose Your Instructor</h2>
+                <p class="mt-4 text-lg text-zinc-400">Select a coach to view their profile.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto" id="coach-grid">
+                
+                <div class="coach-card relative cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-zinc-800 transition-all duration-300" data-belt="black" onclick="selectCoach(this)">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg" alt="Coach" class="h-full w-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                        <p class="font-medium text-white text-lg">Head Coach Marcus</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Black Belt</p>
+                        <div class="coach-desc text-zinc-300 text-sm leading-relaxed">15 years experience. Multiple state and national titles. Specializes in leg lock systems and pressure passing.</div>
+                    </div>
+                </div>
+
+                <div class="coach-card relative cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-zinc-800 transition-all duration-300" data-belt="black" onclick="selectCoach(this)">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542596594-649edbc13630?q=80&w=1000&auto=format&fit=crop" alt="Coach" class="h-full w-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                        <p class="font-medium text-white text-lg">Coach Sarah</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Black Belt</p>
+                         <div class="coach-desc text-zinc-300 text-sm leading-relaxed">World Masters Champion. Expert in guard retention and flexibility concepts.</div>
+                    </div>
+                </div>
+
+                <div class="coach-card relative cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-zinc-800 transition-all duration-300" data-belt="brown" onclick="selectCoach(this)">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c543a9e1-f226-4ced-80b0-feb8445a75b9_1600w.jpg" alt="Coach" class="h-full w-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                        <p class="font-medium text-white text-lg">Coach David</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-amber-700">Brown Belt</p>
+                         <div class="coach-desc text-zinc-300 text-sm leading-relaxed">Submission hunter. Focuses on high-percentage submission chains.</div>
+                    </div>
+                </div>
+
+                <div class="coach-card relative cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-zinc-800 transition-all duration-300" data-belt="purple" onclick="selectCoach(this)">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?q=80&w=1000&auto=format&fit=crop" alt="Coach" class="h-full w-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                        <p class="font-medium text-white text-lg">Coach James</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-purple-500">Purple Belt</p>
+                         <div class="coach-desc text-zinc-300 text-sm leading-relaxed">Kids program coordinator. Focuses on fundamentals.</div>
+                    </div>
+                </div>
+
+                <div class="coach-card relative cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-zinc-800 transition-all duration-300" data-belt="blue" onclick="selectCoach(this)">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5bab247f-35d9-400d-a82b-fd87cfe913d2_1600w.webp" alt="Coach" class="h-full w-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                        <p class="font-medium text-white text-lg">Coach Emily</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-blue-500">Blue Belt</p>
+                         <div class="coach-desc text-zinc-300 text-sm leading-relaxed">Women's class assistant. Passionate about self-defense.</div>
+                    </div>
+                </div>
+
+                 <div class="coach-card relative cursor-pointer overflow-hidden rounded-xl border-2 border-transparent bg-zinc-800 transition-all duration-300" data-belt="white" onclick="selectCoach(this)">
+                    <div class="aspect-square w-full overflow-hidden">
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/30104e3c-5eea-4b93-93e9-5313698a7156_1600w.webp" alt="Coach" class="h-full w-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                        <p class="font-medium text-white text-lg">Admin Tom</p>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-white">Program Manager</p>
+                         <div class="coach-desc text-zinc-300 text-sm leading-relaxed">Manages day-to-day operations.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliation Section -->
+    <section class="py-24 bg-zinc-950">
+        <div class="mx-auto max-w-4xl px-6 text-center">
+            <div class="mb-8 flex justify-center">
+                <div class="h-24 w-24 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                    <span class="text-2xl font-bold text-white tracking-tighter">AET</span>
+                </div>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-medium tracking-tight text-white mb-6">
+                Proudly affiliated with the Australian Elite Team
+            </h3>
+            <blockquote class="text-xl md:text-2xl font-light text-zinc-300 italic leading-relaxed">
+                "The number one team in Australia and the Pan Pacific Region and currently ranked the number 11th team in the world under the International Brazilian Jiu Jitsu Federation (IBJJF) rankings."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-zinc-900 border-t border-white/5">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="p-8 md:p-16 lg:p-24">
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white mb-2">Start Training</h2>
+                <p class="text-lg text-zinc-400 mb-10">Visit us or get in touch.</p>
+
+                <div class="space-y-8 mb-12">
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 rounded-lg bg-zinc-800 p-2 text-white"><iconify-icon icon="solar:map-point-linear" width="20"></iconify-icon></div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white">Location</h4>
+                            <p class="text-lg text-zinc-400 mt-1">74 Hampshire Road<br>Sunshine<br>VIC 3020</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 rounded-lg bg-zinc-800 p-2 text-white"><iconify-icon icon="solar:clock-circle-linear" width="20"></iconify-icon></div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white">Opening Hours</h4>
+                            <p class="text-lg text-zinc-400 mt-1">Mon - Fri: 4:00 PM - 9:00 PM<br>Sat: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 rounded-lg bg-zinc-800 p-2 text-white"><iconify-icon icon="solar:phone-linear" width="20"></iconify-icon></div>
+                        <div>
+                            <h4 class="text-lg font-medium text-white">Contact</h4>
+                            <p class="text-lg text-zinc-400 mt-1">
+                                <a href="tel:0474526288" class="hover:text-orange-500 transition-colors">0474 526 288</a><br>
+                                <a href="mailto:flightbjj@gmail.com" class="hover:text-orange-500 transition-colors">flightbjj@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="First Name" class="w-full rounded-lg bg-zinc-800 border-none px-4 py-3 text-white placeholder-zinc-500 focus:ring-1 focus:ring-orange-500 outline-none text-base">
+                        <input type="text" placeholder="Last Name" class="w-full rounded-lg bg-zinc-800 border-none px-4 py-3 text-white placeholder-zinc-500 focus:ring-1 focus:ring-orange-500 outline-none text-base">
+                    </div>
+                    <input type="email" placeholder="Email Address" class="w-full rounded-lg bg-zinc-800 border-none px-4 py-3 text-white placeholder-zinc-500 focus:ring-1 focus:ring-orange-500 outline-none text-base">
+                    <textarea rows="4" placeholder="How can we help?" class="w-full rounded-lg bg-zinc-800 border-none px-4 py-3 text-white placeholder-zinc-500 focus:ring-1 focus:ring-orange-500 outline-none text-base resize-none"></textarea>
+                    <button type="submit" class="w-full rounded-lg bg-white py-3 px-6 text-base font-medium text-black hover:bg-zinc-200 transition-colors">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <div class="relative h-[400px] lg:h-auto w-full bg-zinc-800">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.2676089778235!2d144.8315!3d-37.7856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65e638210332d%3A0x5045675218cdba0!2s74%20Hampshire%20Rd%2C%20Sunshine%20VIC%203020%2C%20Australia!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-zinc-950 py-12 border-t border-white/5">
+        <div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-semibold text-white tracking-tight text-xl">FLIGHT BJJ</span>
+                <span class="text-zinc-500 text-sm">© 2024</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors"><iconify-icon icon="solar:instagram-linear" width="24"></iconify-icon></a>
+                <a href="#" class="text-zinc-400 hover:text-white transition-colors"><iconify-icon icon="solar:facebook-linear" width="24"></iconify-icon></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Coach Selection Logic
+        function selectCoach(card) {
+            document.querySelectorAll('.coach-card').forEach(c => {
+                c.classList.remove('active');
+                c.style.borderColor = 'transparent';
+            });
+            card.classList.add('active');
+            const belt = card.getAttribute('data-belt');
+            let color = '';
+            switch(belt) {
+                case 'black': color = '#ffffff'; break;
+                case 'brown': color = '#b45309'; break;
+                case 'purple': color = '#9333ea'; break;
+                case 'blue': color = '#3b82f6'; break;
+                case 'white': color = '#a1a1aa'; break;
+                default: color = '#fff';
+            }
+            card.style.borderColor = color;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstCoach = document.querySelector('.coach-card');
+            if(firstCoach) selectCoach(firstCoach);
+            
+            // Auto-select current day for timetable
+            const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const today = days[new Date().getDay()];
+            if(document.getElementById(today)) {
+                switchTab(today);
+            } else {
+                switchTab('monday');
+            }
+        });
+
+        // Tab Switching Logic (Timetable)
+        function switchTab(day) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.textContent.toLowerCase().includes(day) || b.textContent.toLowerCase() === day);
+            if(activeBtn) activeBtn.classList.add('active');
+
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            const content = document.getElementById(day);
+            if(content) content.classList.add('active');
+        }
+
+        // Price Switching Logic
+        function togglePrices(type) {
+            const tabs = document.querySelectorAll('.price-tab');
+            const grids = document.querySelectorAll('.price-grid');
+
+            tabs.forEach(t => t.classList.remove('active', 'text-white'));
+            tabs.forEach(t => {
+                if(!t.classList.contains('active')) t.classList.add('text-zinc-400');
+            });
+
+            const activeBtn = document.getElementById(`btn-${type}`);
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-zinc-400');
+
+            grids.forEach(g => g.classList.remove('active'));
+            document.getElementById(`prices-${type}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
