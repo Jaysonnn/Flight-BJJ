@@ -103,123 +103,241 @@ title: Home
     </div>
   </section>
 
-  <section id="schedule" class="py-32 bg-white border-t border-gray-200">
+<section id="schedule" class="py-32 bg-white border-t border-gray-200">
     <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-20">
+      <div class="text-center mb-12">
         <h2 class="text-4xl sm:text-5xl font-black uppercase tracking-tighter">Class Schedule</h2>
-        <p class="mt-4 text-gray-500 font-medium">Find the perfect time to train. Classes available 7 days a week.</p>
+        <p class="mt-4 text-gray-500 font-medium mb-8">Find the perfect time to train. Classes available 7 days a week.</p>
+        
+        <div class="inline-flex bg-gray-100 p-1 border border-gray-200">
+          <button id="btn-list-view" class="px-6 py-2 text-sm font-bold uppercase tracking-widest bg-black text-white shadow transition-all duration-200">
+            List View
+          </button>
+          <button id="btn-grid-view" class="px-6 py-2 text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-black transition-all duration-200">
+            Timetable
+          </button>
+        </div>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-24">
-        
-        <div>
-          <h3 class="text-2xl font-black uppercase border-b-4 border-black pb-4 mb-8">Morning (AM)</h3>
-          <div class="space-y-8">
-            <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Wednesday</h4>
-              <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                <span class="font-bold text-lg">6:00AM – 7:00AM</span>
-                <span class="font-bold uppercase tracking-wider text-sm text-right">Fundamentals – No Gi</span>
-              </div>
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Saturday</h4>
-              <div class="space-y-2">
+      <div id="view-list" class="block animate-fade-in-up">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-24">
+          <div>
+            <h3 class="text-2xl font-black uppercase border-b-4 border-black pb-4 mb-8">Morning (AM)</h3>
+            <div class="space-y-8">
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Wednesday</h4>
                 <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">9:00AM – 9:45AM</span>
-                  <span class="font-bold uppercase tracking-wider text-sm text-right">Kids Class</span>
-                </div>
-                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">10:00AM – 11:00AM</span>
+                  <span class="font-bold text-lg">6:00AM – 7:00AM</span>
                   <span class="font-bold uppercase tracking-wider text-sm text-right">Fundamentals – No Gi</span>
                 </div>
-                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">11:00AM – 12:00PM</span>
-                  <span class="font-bold uppercase tracking-wider text-sm text-right">Kickboxing</span>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Saturday</h4>
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">9:00AM – 9:45AM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">Kids Class</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">10:00AM – 11:00AM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">Fundamentals – No Gi</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">11:00AM – 12:00PM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">Kickboxing</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Sunday</h4>
-              <div class="space-y-2">
-                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">8:30AM – 9:30AM</span>
-                  <span class="font-bold uppercase tracking-wider text-sm text-right">Boxing</span>
-                </div>
-                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">10:00AM – 11:00AM</span>
-                  <span class="font-bold uppercase tracking-wider text-sm text-right">Fundamentals – Yes Gi</span>
-                </div>
-                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">11:00AM – 12:00PM</span>
-                  <span class="font-bold uppercase tracking-wider text-sm text-right">Grappling Rounds</span>
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Sunday</h4>
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">8:30AM – 9:30AM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">Boxing</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">10:00AM – 11:00AM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">Fundamentals – Yes Gi</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">11:00AM – 12:00PM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">Grappling Rounds</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div>
-          <h3 class="text-2xl font-black uppercase border-b-4 border-black pb-4 mb-8">Evening (PM)</h3>
-          <div class="space-y-8">
-            <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Monday</h4>
-              <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                <span class="font-bold text-lg">6:00PM – 7:30PM</span>
-                <span class="font-bold uppercase tracking-wider text-sm text-right">BJJ – Yes Gi</span>
-              </div>
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Tuesday</h4>
-              <div class="space-y-2">
-                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">5:00PM – 5:45PM</span>
-                  <span class="font-bold uppercase tracking-wider text-sm text-right">Kids Class</span>
-                </div>
-                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">6:00PM – 7:30PM</span>
-                  <span class="font-bold uppercase tracking-wider text-sm text-right">BJJ – No Gi</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Wednesday</h4>
-              <div class="space-y-2">
-                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                  <span class="font-bold text-lg">5:00PM – 6:00PM</span>
-                  <span class="font-bold uppercase tracking-wider text-sm text-right">Kickboxing</span>
-                </div>
+          <div>
+            <h3 class="text-2xl font-black uppercase border-b-4 border-black pb-4 mb-8">Evening (PM)</h3>
+            <div class="space-y-8">
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Monday</h4>
                 <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
                   <span class="font-bold text-lg">6:00PM – 7:30PM</span>
                   <span class="font-bold uppercase tracking-wider text-sm text-right">BJJ – Yes Gi</span>
                 </div>
               </div>
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Thursday</h4>
-              <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                <span class="font-bold text-lg">6:00PM – 7:30PM</span>
-                <span class="font-bold uppercase tracking-wider text-sm text-right">BJJ – No Gi</span>
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Tuesday</h4>
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">5:00PM – 5:45PM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">Kids Class</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">6:00PM – 7:30PM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">BJJ – No Gi</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Friday</h4>
-              <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                <span class="font-bold text-lg">6:00PM – 7:30PM</span>
-                <span class="font-bold uppercase tracking-wider text-sm text-right">Grappling Rounds</span>
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Wednesday</h4>
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">5:00PM – 6:00PM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">Kickboxing</span>
+                  </div>
+                  <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                    <span class="font-bold text-lg">6:00PM – 7:30PM</span>
+                    <span class="font-bold uppercase tracking-wider text-sm text-right">BJJ – Yes Gi</span>
+                  </div>
+                </div>
               </div>
-            </div>
-             <div>
-              <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Sunday</h4>
-              <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
-                <span class="font-bold text-lg">12:00PM</span>
-                <span class="font-bold uppercase tracking-wider text-sm text-right">NDIS (By Appt)</span>
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Thursday</h4>
+                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                  <span class="font-bold text-lg">6:00PM – 7:30PM</span>
+                  <span class="font-bold uppercase tracking-wider text-sm text-right">BJJ – No Gi</span>
+                </div>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Friday</h4>
+                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                  <span class="font-bold text-lg">6:00PM – 7:30PM</span>
+                  <span class="font-bold uppercase tracking-wider text-sm text-right">Grappling Rounds</span>
+                </div>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Sunday</h4>
+                <div class="flex justify-between items-center bg-gray-50 p-4 border-l-4 border-black">
+                  <span class="font-bold text-lg">12:00PM</span>
+                  <span class="font-bold uppercase tracking-wider text-sm text-right">NDIS (By Appt)</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
+
+      <div id="view-grid" class="hidden animate-fade-in-up">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
+          
+          <div class="bg-gray-50 p-4 border-t-4 border-black flex flex-col h-full">
+            <h4 class="font-black uppercase tracking-widest text-center mb-4 border-b border-gray-200 pb-2">Mon</h4>
+            <div class="space-y-3 flex-grow">
+              <div class="bg-white p-3 border border-gray-200 shadow-sm">
+                <div class="text-xs font-bold text-gray-400 mb-1">6:00PM – 7:30PM</div>
+                <div class="font-bold text-sm leading-tight">BJJ – Yes Gi</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-4 border-t-4 border-black flex flex-col h-full">
+            <h4 class="font-black uppercase tracking-widest text-center mb-4 border-b border-gray-200 pb-2">Tue</h4>
+            <div class="space-y-3 flex-grow">
+              <div class="bg-white p-3 border border-gray-200 shadow-sm border-l-4 border-l-gray-400">
+                <div class="text-xs font-bold text-gray-400 mb-1">5:00PM – 5:45PM</div>
+                <div class="font-bold text-sm leading-tight">Kids Class</div>
+              </div>
+              <div class="bg-white p-3 border border-gray-200 shadow-sm">
+                <div class="text-xs font-bold text-gray-400 mb-1">6:00PM – 7:30PM</div>
+                <div class="font-bold text-sm leading-tight">BJJ – No Gi</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-4 border-t-4 border-black flex flex-col h-full">
+            <h4 class="font-black uppercase tracking-widest text-center mb-4 border-b border-gray-200 pb-2">Wed</h4>
+            <div class="space-y-3 flex-grow">
+              <div class="bg-white p-3 border border-gray-200 shadow-sm">
+                <div class="text-xs font-bold text-gray-400 mb-1">6:00AM – 7:00AM</div>
+                <div class="font-bold text-sm leading-tight">Fundamentals – No Gi</div>
+              </div>
+              <div class="bg-white p-3 border border-gray-200 shadow-sm border-l-4 border-l-red-600">
+                <div class="text-xs font-bold text-gray-400 mb-1">5:00PM – 6:00PM</div>
+                <div class="font-bold text-sm leading-tight">Kickboxing</div>
+              </div>
+              <div class="bg-white p-3 border border-gray-200 shadow-sm">
+                <div class="text-xs font-bold text-gray-400 mb-1">6:00PM – 7:30PM</div>
+                <div class="font-bold text-sm leading-tight">BJJ – Yes Gi</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-4 border-t-4 border-black flex flex-col h-full">
+            <h4 class="font-black uppercase tracking-widest text-center mb-4 border-b border-gray-200 pb-2">Thu</h4>
+            <div class="space-y-3 flex-grow">
+              <div class="bg-white p-3 border border-gray-200 shadow-sm">
+                <div class="text-xs font-bold text-gray-400 mb-1">6:00PM – 7:30PM</div>
+                <div class="font-bold text-sm leading-tight">BJJ – No Gi</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-4 border-t-4 border-black flex flex-col h-full">
+            <h4 class="font-black uppercase tracking-widest text-center mb-4 border-b border-gray-200 pb-2">Fri</h4>
+            <div class="space-y-3 flex-grow">
+              <div class="bg-white p-3 border border-gray-200 shadow-sm border-l-4 border-l-blue-600">
+                <div class="text-xs font-bold text-gray-400 mb-1">6:00PM – 7:30PM</div>
+                <div class="font-bold text-sm leading-tight">Grappling Rounds</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-4 border-t-4 border-black flex flex-col h-full">
+            <h4 class="font-black uppercase tracking-widest text-center mb-4 border-b border-gray-200 pb-2">Sat</h4>
+            <div class="space-y-3 flex-grow">
+              <div class="bg-white p-3 border border-gray-200 shadow-sm border-l-4 border-l-gray-400">
+                <div class="text-xs font-bold text-gray-400 mb-1">9:00AM – 9:45AM</div>
+                <div class="font-bold text-sm leading-tight">Kids Class</div>
+              </div>
+              <div class="bg-white p-3 border border-gray-200 shadow-sm">
+                <div class="text-xs font-bold text-gray-400 mb-1">10:00AM – 11:00AM</div>
+                <div class="font-bold text-sm leading-tight">Fundamentals – No Gi</div>
+              </div>
+              <div class="bg-white p-3 border border-gray-200 shadow-sm border-l-4 border-l-red-600">
+                <div class="text-xs font-bold text-gray-400 mb-1">11:00AM – 12:00PM</div>
+                <div class="font-bold text-sm leading-tight">Kickboxing</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-4 border-t-4 border-black flex flex-col h-full">
+            <h4 class="font-black uppercase tracking-widest text-center mb-4 border-b border-gray-200 pb-2">Sun</h4>
+            <div class="space-y-3 flex-grow">
+              <div class="bg-white p-3 border border-gray-200 shadow-sm border-l-4 border-l-red-600">
+                <div class="text-xs font-bold text-gray-400 mb-1">8:30AM – 9:30AM</div>
+                <div class="font-bold text-sm leading-tight">Boxing</div>
+              </div>
+              <div class="bg-white p-3 border border-gray-200 shadow-sm">
+                <div class="text-xs font-bold text-gray-400 mb-1">10:00AM – 11:00AM</div>
+                <div class="font-bold text-sm leading-tight">Fundamentals – Yes Gi</div>
+              </div>
+              <div class="bg-white p-3 border border-gray-200 shadow-sm border-l-4 border-l-blue-600">
+                <div class="text-xs font-bold text-gray-400 mb-1">11:00AM – 12:00PM</div>
+                <div class="font-bold text-sm leading-tight">Grappling Rounds</div>
+              </div>
+              <div class="bg-white p-3 border border-gray-200 shadow-sm border-l-4 border-l-purple-600">
+                <div class="text-xs font-bold text-gray-400 mb-1">12:00PM</div>
+                <div class="font-bold text-sm leading-tight">NDIS (By Appt)</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
