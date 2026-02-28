@@ -9,7 +9,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           
-          <div class="dropdown-content absolute top-[70px] left-0 w-72 bg-white border border-gray-100 shadow-2xl py-6 px-8 z-50">
+          <div class="dropdown-content absolute top-[70px] left-0 w-72 bg-white border border-gray-100 shadow-2xl py-6 px-8 z-50 hidden">
             <ul class="space-y-4 text-xs font-bold tracking-widest uppercase text-gray-900">
               <li><a href="{{ '/become-member.html' | relative_url }}" class="hover:text-gray-500 transition-colors block">Become a Member</a></li>
               <li><a href="{{ '/trial.html' | relative_url }}" class="hover:text-gray-500 transition-colors block">Book Trial Class</a></li>
@@ -41,11 +41,16 @@
         </a>
       </div>
       
-      <div class="flex items-center">
-         <a href="{{ '/trial.html' | relative_url }}" class="text-xs font-bold tracking-widest uppercase bg-black text-white px-6 py-3 hover:bg-gray-800 transition-colors">
+      <div class="flex items-center gap-5 sm:gap-6">
+        <a href="https://flight-bjj.myshopify.com/cart" class="flex items-center gap-2 text-black hover:text-gray-500 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </a>
+
+        <a href="{{ '/trial.html' | relative_url }}" class="text-xs font-bold tracking-widest uppercase bg-black text-white px-5 sm:px-6 py-3 hover:bg-gray-800 transition-colors">
           FREE TRIAL
         </a>
       </div>
+
     </div>
   </div>
 </nav>
