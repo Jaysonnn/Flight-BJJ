@@ -65,4 +65,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- 4. SCHEDULE TOGGLE LOGIC ---
+  const btnList = document.getElementById('btn-list-view');
+  const btnGrid = document.getElementById('btn-grid-view');
+  const viewList = document.getElementById('view-list');
+  const viewGrid = document.getElementById('view-grid');
+
+  // Safety check: Only run if the schedule elements exist on the page
+  if (btnList && btnGrid && viewList && viewGrid) {
+    function setActiveButton(activeBtn, inactiveBtn) {
+      // Style active button
+      activeBtn.classList.add('bg-black', 'text-white', 'shadow');
+      activeBtn.classList.remove('text-gray-500', 'hover:text-black');
+      
+      // Style inactive button
+      inactiveBtn.classList.remove('bg-black', 'text-white', 'shadow');
+      inactiveBtn.classList.add('text-gray-500', 'hover:text-black');
+    }
+
+    btnList.addEventListener('click', () => {
+      viewList.classList.remove('hidden');
+      viewList.classList.add('block');
+      viewGrid.classList.remove('block');
+      viewGrid.classList.add('hidden');
+      setActiveButton(btnList, btnGrid);
+    });
+
+    btnGrid.addEventListener('click', () => {
+      viewGrid.classList.remove('hidden');
+      viewGrid.classList.add('block');
+      viewList.classList.remove('block');
+      viewList.classList.add('hidden');
+      setActiveButton(btnGrid, btnList);
+    });
+  }
+
 });
