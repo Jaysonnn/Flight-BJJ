@@ -4,139 +4,133 @@ title: Become a Member
 ---
 
 <section class="relative pt-40 pb-20 bg-gray-50 border-b border-gray-200">
-  <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto animate-fade-in-up">
-      <div class="inline-block bg-black text-white text-xs font-bold tracking-widest uppercase px-4 py-1 mb-8">
-        Join The Team
-      </div>
-      <h1 class="text-5xl sm:text-7xl font-black uppercase tracking-tighter text-black leading-none">
-        Become A<br/>Member
-      </h1>
-      <p class="mt-8 text-lg text-gray-500 font-medium">
-        Take the next step in your martial arts journey. Fill out the form below to register your interest, and our coaching staff will be in touch to get you started.
-      </p>
-    </div>
-  </div>
+<div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto animate-fade-in-up">
+<div class="inline-block bg-black text-white text-xs font-bold tracking-widest uppercase px-4 py-1 mb-8">
+Join The Team
+</div>
+<h1 class="text-5xl sm:text-7xl font-black uppercase tracking-tighter text-black leading-none">
+Become A<br/>Member
+</h1>
+<p class="mt-8 text-lg text-gray-500 font-medium">
+Take the next step in your martial arts journey. Fill out the form below to register your interest, and our coaching staff will be in touch to get you started.
+</p>
+</div>
+</div>
 </section>
 
 <section class="py-24 bg-white">
-  <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-      
-      <div class="sticky top-32 flex flex-col gap-6 mb-8 lg:mb-0">
-        <video 
-          loop 
-          muted 
-          playsinline 
-          preload="none"
-          poster="assets/images/bjj-crew.png"
-          class="lazy-video w-full h-auto object-cover shadow-2xl border-4 border-white"
-        >
-          <source data-src="assets/videos/intro.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+<div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-16 items-start">
+<div class="sticky top-32 hidden lg:flex flex-col gap-6">
+<video
+autoplay
+loop
+muted
+playsinline
+class="w-full h-auto object-cover shadow-2xl border-4 border-white"
+>
+<source src="assets/videos/intro.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
 
-      <div class="bg-gray-50 p-8 sm:p-12 border-t-4 border-black shadow-lg">
-        <h2 class="text-3xl font-black uppercase tracking-tight mb-8">Registration Form</h2>
-        
-        <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" class="space-y-6">
-          
-          <div>
-            <label for="program" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">I am interested in:*</label>
-            <select id="program" name="program" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium text-gray-700 focus:border-black focus:ring-0 transition-colors cursor-pointer">
-              <option value="" disabled selected>Select a program...</option>
-              <option value="adults">Adults Class</option>
-              <option value="kids">Kids Class</option>
-              <option value="ndis">NDIS / Specialised</option>
-            </select>
-          </div>
+<div class="bg-gray-50 p-8 sm:p-12 border-t-4 border-black shadow-lg">
+<h2 class="text-3xl font-black uppercase tracking-tight mb-8">Registration Form</h2>
+<form action="YOUR_FORMSPREE_ENDPOINT" method="POST" class="space-y-6">
+<div>
+<label for="program" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">I am interested in:*</label>
+<select id="program" name="program" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium text-gray-700 focus:border-black focus:ring-0 transition-colors cursor-pointer">
+<option value="" disabled selected>Select a program...</option>
+<option value="adults">Adults Class</option>
+<option value="kids">Kids Class</option>
+<option value="ndis">NDIS / Specialised</option>
+</select>
+</div>
 
-          <div id="dynamic-rates-container" class="hidden bg-white border-2 border-black p-6 my-6">
-            <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Applicable Rates</h3>
-            
-            <div id="rates-adults" class="hidden space-y-3">
-              <div class="flex justify-between items-center border-b border-gray-100 pb-2">
-                <span class="font-bold">Unlimited Monthly</span>
-                <span class="font-black">$160/mo</span>
-              </div>
-              <div class="flex justify-between items-center border-b border-gray-100 pb-2">
-                <span class="font-bold">10 Class Pass</span>
-                <span class="font-black">$200</span>
-              </div>
-              <p class="text-xs text-gray-500 mt-2">*One-off $12 admin setup fee applies for direct debit.</p>
-            </div>
+<div id="dynamic-rates-container" class="hidden bg-white border-2 border-black p-6 my-6">
+<h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Applicable Rates</h3>
+<div id="rates-adults" class="hidden space-y-3">
+<div class="flex justify-between items-center border-b border-gray-100 pb-2">
+<span class="font-bold">Unlimited Monthly</span>
+<span class="font-black">$160/mo</span>
+</div>
+<div class="flex justify-between items-center border-b border-gray-100 pb-2">
+<span class="font-bold">10 Class Pass</span>
+<span class="font-black">$200</span>
+</div>
+<p class="text-xs text-gray-500 mt-2">*One-off $12 admin setup fee applies for direct debit.</p>
+</div>
 
-            <div id="rates-kids" class="hidden space-y-3">
-              <div class="flex justify-between items-center border-b border-gray-100 pb-2">
-                <span class="font-bold">Full Term (2 classes/wk)</span>
-                <span class="font-black">$250/term</span>
-              </div>
-              <div class="flex justify-between items-center border-b border-gray-100 pb-2">
-                <span class="font-bold">Half Term (1 class/wk)</span>
-                <span class="font-black">$175/term</span>
-              </div>
-            </div>
+<div id="rates-kids" class="hidden space-y-3">
+<div class="flex justify-between items-center border-b border-gray-100 pb-2">
+<span class="font-bold">Full Term (2 classes/wk)</span>
+<span class="font-black">$250/term</span>
+</div>
+<div class="flex justify-between items-center border-b border-gray-100 pb-2">
+<span class="font-bold">Half Term (1 class/wk)</span>
+<span class="font-black">$175/term</span>
+</div>
+</div>
 
-            <div id="rates-ndis" class="hidden">
-              <p class="text-sm font-bold">Pricing for NDIS and Private lessons is tailored to individual requirements. We will discuss this with you during your initial consultation.</p>
-            </div>
-          </div>
+<div id="rates-ndis" class="hidden">
+<p class="text-sm font-bold">Pricing for NDIS and Private lessons is tailored to individual requirements. We will discuss this with you during your initial consultation.</p>
+</div>
+</div>
 
-          <div>
-            <label class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-3">Specific Training Interests:</label>
-            <div class="grid grid-cols-2 gap-3">
-              <label class="flex items-center space-x-3 cursor-pointer">
-                <input type="checkbox" name="interests[]" value="All Classes" class="w-5 h-5 text-black border-2 border-gray-300 rounded-none focus:ring-black">
-                <span class="text-sm font-medium">All Classes</span>
-              </label>
-              <label class="flex items-center space-x-3 cursor-pointer">
-                <input type="checkbox" name="interests[]" value="Gi Jiu Jitsu" class="w-5 h-5 text-black border-2 border-gray-300 rounded-none focus:ring-black">
-                <span class="text-sm font-medium">Gi Jiu Jitsu</span>
-              </label>
-              <label class="flex items-center space-x-3 cursor-pointer">
-                <input type="checkbox" name="interests[]" value="No-Gi Jiu Jitsu" class="w-5 h-5 text-black border-2 border-gray-300 rounded-none focus:ring-black">
-                <span class="text-sm font-medium">No-Gi Jiu Jitsu</span>
-              </label>
-              <label class="flex items-center space-x-3 cursor-pointer">
-                <input type="checkbox" name="interests[]" value="Striking" class="w-5 h-5 text-black border-2 border-gray-300 rounded-none focus:ring-black">
-                <span class="text-sm font-medium">Boxing/Kickboxing</span>
-              </label>
-            </div>
-          </div>
+<div>
+<label class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-3">Specific Training Interests:</label>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center space-x-3 cursor-pointer">
+<input type="checkbox" name="interests[]" value="All Classes" class="w-5 h-5 text-black border-2 border-gray-300 rounded-none focus:ring-black">
+<span class="text-sm font-medium">All Classes</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer">
+<input type="checkbox" name="interests[]" value="Gi Jiu Jitsu" class="w-5 h-5 text-black border-2 border-gray-300 rounded-none focus:ring-black">
+<span class="text-sm font-medium">Gi Jiu Jitsu</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer">
+<input type="checkbox" name="interests[]" value="No-Gi Jiu Jitsu" class="w-5 h-5 text-black border-2 border-gray-300 rounded-none focus:ring-black">
+<span class="text-sm font-medium">No-Gi Jiu Jitsu</span>
+</label>
+<label class="flex items-center space-x-3 cursor-pointer">
+<input type="checkbox" name="interests[]" value="Striking" class="w-5 h-5 text-black border-2 border-gray-300 rounded-none focus:ring-black">
+<span class="text-sm font-medium">Boxing/Kickboxing</span>
+</label>
+</div>
+</div>
 
-          <hr class="border-gray-200 my-8">
+<hr class="border-gray-200 my-8">
 
-          <div class="space-y-6">
-            <div>
-              <label for="name" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Full Name*</label>
-              <input type="text" id="name" name="name" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium focus:border-black focus:ring-0 transition-colors" placeholder="John Doe">
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label for="email" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Email Address*</label>
-                <input type="email" id="email" name="email" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium focus:border-black focus:ring-0 transition-colors" placeholder="john@example.com">
-              </div>
-              <div>
-                <label for="phone" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Phone Number*</label>
-                <input type="tel" id="phone" name="phone" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium focus:border-black focus:ring-0 transition-colors" placeholder="0400 000 000">
-              </div>
-            </div>
-          </div>
+<div class="space-y-6">
+<div>
+<label for="name" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Full Name*</label>
+<input type="text" id="name" name="name" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium focus:border-black focus:ring-0 transition-colors" placeholder="John Doe">
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label for="email" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Email Address*</label>
+<input type="email" id="email" name="email" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium focus:border-black focus:ring-0 transition-colors" placeholder="john@example.com">
+</div>
+<div>
+<label for="phone" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Phone Number*</label>
+<input type="tel" id="phone" name="phone" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium focus:border-black focus:ring-0 transition-colors" placeholder="0400 000 000">
+</div>
+</div>
+</div>
 
-          <div>
-            <label for="session" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Preferred First Session*</label>
-            <input type="text" id="session" name="session" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium focus:border-black focus:ring-0 transition-colors" placeholder="e.g., Wednesday 6:00PM No-Gi">
-            <p class="text-xs text-gray-500 mt-2">Check the <a href="index.html#schedule" class="underline hover:text-black">schedule</a> if you are unsure.</p>
-          </div>
+<div>
+<label for="session" class="block text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Preferred First Session*</label>
+<input type="text" id="session" name="session" required class="w-full bg-white border-2 border-gray-200 p-4 font-medium focus:border-black focus:ring-0 transition-colors" placeholder="e.g., Wednesday 6:00PM No-Gi">
+<p class="text-xs text-gray-500 mt-2">Check the <a href="index.html#schedule" class="underline hover:text-black">schedule</a> if you are unsure.</p>
+</div>
 
-          <button type="submit" class="w-full bg-black text-white font-bold uppercase tracking-widest py-5 mt-4 hover:bg-gray-800 transition-colors">
-            Submit Application
-          </button>
+<button type="submit" class="w-full bg-black text-white font-bold uppercase tracking-widest py-5 mt-4 hover:bg-gray-800 transition-colors">
+Submit Application
+</button>
 
-        </form>
-      </div>
-    </div>
-  </div>
+</form>
+</div>
+</div>
+</div>
 </section>
